@@ -26,6 +26,7 @@ from banking_analytics.feature_engineer import build_preprocessor, select_featur
 from banking_analytics.utils.io_utils import write_json_safe
 from banking_analytics.utils.logger import get_logger
 from banking_analytics.visualizer import (
+    plot_calibration_curve,
     plot_confusion_matrix,
     plot_feature_coefficients,
     plot_pr_curve,
@@ -228,6 +229,12 @@ def train_and_evaluate_classification(
     plot_feature_coefficients(
         coef_df,
         output_path=f"{figures_dir}/coefficient_plot.png",
+    )
+    y_test_probs = pipeline.predict_proba(X_test)[:, 1]
+    plot_calibration_curve(
+        y_test.to_numpy(),
+        y_test_probs,
+        output_path=f"{figures_dir}/calibration_curve.png",
     )
 
     # 9. Save model artifacts and metadata

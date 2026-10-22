@@ -44,3 +44,19 @@ CREATE INDEX IF NOT EXISTS idx_credit_score ON loan_applications(credit_score);
 CREATE INDEX IF NOT EXISTS idx_loan_approved ON loan_applications(loan_approved);
 CREATE INDEX IF NOT EXISTS idx_loan_purpose ON loan_applications(loan_purpose);
 CREATE INDEX IF NOT EXISTS idx_region ON loan_applications(region);
+
+-- Normalized Reference Table for Credit Score Tiers (TRD Section 6.2)
+CREATE TABLE IF NOT EXISTS credit_score_bands (
+    band_label  VARCHAR(32) PRIMARY KEY,
+    score_min   INTEGER     NOT NULL,
+    score_max   INTEGER     NOT NULL
+);
+
+INSERT INTO credit_score_bands (band_label, score_min, score_max)
+VALUES
+    ('Poor (300-579)', 300, 579),
+    ('Fair (580-669)', 580, 669),
+    ('Good (670-739)', 670, 739),
+    ('Very Good (740-799)', 740, 799),
+    ('Exceptional (800-850)', 800, 850)
+ON CONFLICT (band_label) DO NOTHING;

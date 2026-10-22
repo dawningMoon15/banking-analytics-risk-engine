@@ -283,3 +283,106 @@ def plot_feature_coefficients(
     plt.close(fig)
     logger.info("Saved coefficient plot to: %s", dest)
     return dest
+
+
+def plot_bivariate_boxplots(
+    df: pd.DataFrame,
+    feature: str,
+    target_col: str = "Loan_Approved",
+    output_path: Optional[str] = None,
+    dpi: int = 150,
+) -> Path:
+    """Plots and saves bivariate boxplots of a continuous feature stratified by the target label."""
+    if output_path is None:
+        clean_feat = feature.lower().replace(" ", "_")
+        output_path = f"reports/figures/{clean_feat}_vs_approval.png"
+    dest = _ensure_output_dir(output_path)
+
+    fig, ax = plt.subplots(figsize=(7, 5))
+    plot_df = df[[feature, target_col]].dropna().copy()
+    plot_df["Status"] = plot_df[target_col].map({1: "Approved", 0: "Rejected"}).fillna(plot_df[target_col].astype(str))
+
+    palette = {"Approved": "#2ecc71", "Rejected": "#e74c3c"}
+    sns.boxplot(data=plot_df, x="Status", y=feature, hue="Status", palette=palette, legend=False, ax=ax, width=0.45, showmeans=True,
+                meanprops={"marker": "o", "markerfacecolor": "white", "markeredgecolor": "black", "markersize": "7"})
+
+    ax.set_title(f"Bivariate Distribution: {feature} by Loan Status", fontsize=13, fontweight="bold", pad=15)
+    ax.set_xlabel("Loan Approval Status", fontsize=11)
+    ax.set_ylabel(feature, fontsize=11)
+    plt.tight_layout()
+    fig.savefig(dest, dpi=dpi)
+    plt.close(fig)
+    logger.info("Saved bivariate boxplot for %s to: %s", feature, dest)
+    return dest
+
+
+def plot_bivariate_categorical(
+    df: pd.DataFrame,
+    feature: str,
+    target_col: str = "Loan_Approved",
+    output_path: Optional[str] = None,
+    dpi: int = 150,
+) -> Path:
+    """Plots and saves approval rate percentages stratified by a categorical feature."""
+    if output_path is None:
+        clean_feat = feature.lower().replace(" ", "_")
+        output_path = f"reports/figures/{clean_feat}_vs_approval.png"
+    dest = _ensure_output_dir(output_path)
+
+    rates = (
+        df.groupby(feature)[target_col]
+        .agg(["count", "mean"])
+        .reset_index()
+    )
+    rates["approval_pct"] = rates["mean"] * 100.0
+    rates = rates.sort_values(by="approval_pct", ascending=False)
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    bars = ax.bar(rates[feature].astype(str), rates["approval_pct"], color="#3498db", width=0.55)
+
+    for bar in bars:
+        h = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2.0, h + 1.0, f"{h:.1f}%", ha="center", va="bottom", fontsize=10, fontweight="bold")
+
+    ax.set_title(f"Approval Rate by {feature}", fontsize=13, fontweight="bold", pad=15)
+    ax.set_xlabel(feature, fontsize=11)
+    ax.set_ylabel("Approval Rate (%)", fontsize=11)
+    ax.set_ylim(0, max(rates["approval_pct"]) * 1.15)
+    plt.xticks(rotation=25, ha="right")
+    plt.tight_layout()
+    fig.savefig(dest, dpi=dpi)
+    plt.close(fig)
+    logger.info("Saved categorical bivariate plot for %s to: %s", feature, dest)
+    return dest
+
+
+def plot_calibration_curve(
+    y_true: np.ndarray,
+    y_probs: np.ndarray,
+    output_path: str = "reports/figures/calibration_curve.png",
+    dpi: int = 150,
+    n_bins: int = 10,
+) -> Path:
+    """Plots and saves probability calibration curve (reliability diagram) with Brier score."""
+    from sklearn.calibration import calibration_curve
+    from sklearn.metrics import brier_score_loss
+
+    dest = _ensure_output_dir(output_path)
+    prob_true, prob_pred = calibration_curve(y_true, y_probs, n_bins=n_bins, strategy="uniform")
+    brier = brier_score_loss(y_true, y_probs)
+
+    fig, ax = plt.subplots(figsize=(7, 6))
+    ax.plot([0, 1], [0, 1], linestyle="--", color="#7f8c8d", label="Perfect Calibration")
+    ax.plot(prob_pred, prob_true, marker="o", lw=2, color="#2980b9", label=f"Logistic Regression (Brier: {brier:.4f})")
+
+    ax.set_title("Probability Calibration Curve (Reliability Diagram)", fontsize=13, fontweight="bold", pad=15)
+    ax.set_xlabel("Mean Predicted Probability", fontsize=11)
+    ax.set_ylabel("Observed Fraction of Positives", fontsize=11)
+    ax.set_xlim([0.0, 1.0])
+    ax.set_ylim([0.0, 1.05])
+    ax.legend(loc="lower right", frameon=True)
+    plt.tight_layout()
+    fig.savefig(dest, dpi=dpi)
+    plt.close(fig)
+    logger.info("Saved calibration curve to: %s", dest)
+    return dest

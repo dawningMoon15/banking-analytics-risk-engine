@@ -98,3 +98,8 @@ def test_pipeline_end_to_end(tmp_path: Path, sample_df: pd.DataFrame):
     assert (figures_dir / "silhouette_plot.png").is_file()
     assert (figures_dir / "cluster_pca.png").is_file()
     assert (figures_dir / "coefficient_plot.png").is_file()
+    assert (figures_dir / "calibration_curve.png").is_file()
+    assert (figures_dir / "credit_score_vs_approval.png").is_file()
+    assert (figures_dir / "dti_vs_approval.png").is_file()
+    assert (figures_dir / "income_vs_approval.png").is_file()
+    assert (figures_dir / "loan_purpose_vs_approval.png").is_file()

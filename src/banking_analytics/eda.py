@@ -8,7 +8,12 @@ from scipy import stats
 
 from banking_analytics.utils.io_utils import write_json_safe
 from banking_analytics.utils.logger import get_logger
-from banking_analytics.visualizer import plot_correlation_heatmap, plot_target_distribution
+from banking_analytics.visualizer import (
+    plot_bivariate_boxplots,
+    plot_bivariate_categorical,
+    plot_correlation_heatmap,
+    plot_target_distribution,
+)
 
 logger = get_logger(__name__)
 
@@ -266,6 +271,14 @@ def run_full_eda(
     # 1. Generate Figures
     plot_target_distribution(df, output_path=f"{figures_dir}/target_distribution.png")
     plot_correlation_heatmap(df, output_path=f"{figures_dir}/correlation_heatmap.png")
+    if "Credit_Score" in df.columns:
+        plot_bivariate_boxplots(df, "Credit_Score", output_path=f"{figures_dir}/credit_score_vs_approval.png")
+    if "Debt_To_Income_Ratio" in df.columns:
+        plot_bivariate_boxplots(df, "Debt_To_Income_Ratio", output_path=f"{figures_dir}/dti_vs_approval.png")
+    if "Annual_Income" in df.columns:
+        plot_bivariate_boxplots(df, "Annual_Income", output_path=f"{figures_dir}/income_vs_approval.png")
+    if "Loan_Purpose" in df.columns:
+        plot_bivariate_categorical(df, "Loan_Purpose", output_path=f"{figures_dir}/loan_purpose_vs_approval.png")
 
     # 2. Compute Answers to AQ-01 through AQ-08
     answers = {
