@@ -1,0 +1,37 @@
+Column,Description
+Application_ID,Unique loan application identifier
+Age,Applicant age in years
+Gender,Applicant gender
+Marital_Status,Applicant marital status
+Education_Level,Highest education level completed
+Employment_Status,Current employment category
+Job_Experience_Years,Total work experience in years
+Annual_Income,Applicant annual income
+Monthly_Income,Applicant monthly income
+Credit_Score,Credit score ranging from 300 to 850
+Credit_History_Years,Length of credit history in years
+Existing_Loans,Number of existing loans
+Late_Payments_Last_2_Years,Number of late payments in last two years
+Loan_Amount,Requested loan amount
+Loan_Term_Months,Requested loan term in months
+Loan_Purpose,Purpose of loan application
+Interest_Rate,Assigned interest rate
+Debt_To_Income_Ratio,Debt-to-income ratio percentage
+Savings_Balance,Applicant savings account balance
+Checking_Balance,Applicant checking account balance
+Total_Assets,Total estimated applicant assets
+Total_Liabilities,Total estimated applicant liabilities
+Monthly_Debt_Payment,Monthly debt payment amount
+Property_Ownership,Applicant property ownership status
+Residential_Status,Applicant residential location type
+Dependents,Number of dependents
+Co_Applicant,Whether a co-applicant is included
+Collateral,Whether collateral is provided
+Application_Channel,Loan application submission channel
+Region,Applicant region
+Bank_Account_Age_Years,Age of bank account in years
+Previous_Loan_Status,Applicant previous loan history status
+Risk_Score,Calculated applicant risk score from 0 to 100
+Default_Risk,Default risk category
+Approved_Amount,Final approved loan amount
+Loan_Approved,Loan approval target variable

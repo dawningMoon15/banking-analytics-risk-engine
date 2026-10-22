@@ -1,0 +1,95 @@
+# config/config.yaml — Single source of truth for all parameters
+
+project:
+  name: "banking-analytics"
+  version: "1.0.0"
+
+data:
+  raw_path: "data/raw/loan_approval_dataset.csv"
+  processed_path: "data/processed/loan_data_cleaned_v1.csv"
+  reports_path: "data/reports/data_quality_report.json"
+  version: "v1"
+  required_columns:
+    - "Application_ID"
+    - "Age"
+    - "Gender"
+    - "Marital_Status"
+    - "Education_Level"
+    - "Employment_Status"
+    - "Job_Experience_Years"
+    - "Annual_Income"
+    - "Monthly_Income"
+    - "Credit_Score"
+    - "Credit_History_Years"
+    - "Existing_Loans"
+    - "Late_Payments_Last_2_Years"
+    - "Loan_Amount"
+    - "Loan_Term_Months"
+    - "Loan_Purpose"
+    - "Interest_Rate"
+    - "Debt_To_Income_Ratio"
+    - "Savings_Balance"
+    - "Checking_Balance"
+    - "Total_Assets"
+    - "Total_Liabilities"
+    - "Monthly_Debt_Payment"
+    - "Property_Ownership"
+    - "Residential_Status"
+    - "Dependents"
+    - "Co_Applicant"
+    - "Collateral"
+    - "Application_Channel"
+    - "Region"
+    - "Bank_Account_Age_Years"
+    - "Previous_Loan_Status"
+    - "Risk_Score"
+    - "Default_Risk"
+    - "Approved_Amount"
+    - "Loan_Approved"
+  target_column: "Loan_Approved"
+  excluded_features:
+    - "Application_ID"
+    - "Loan_Approved"
+    - "Default_Risk"
+    - "Approved_Amount"
+    - "Risk_Score"
+    - "Interest_Rate"
+
+database:
+  backend: "duckdb" # Options: "duckdb", "postgresql"
+  postgresql:
+    host: "${DB_HOST}"
+    port: 5432
+    dbname: "${DB_NAME}"
+    user: "${DB_USER}"
+    password: "${DB_PASSWORD}"
+  duckdb:
+    path: "data/banking_analytics.duckdb"
+
+ml:
+  random_seed: 42
+  train_size: 0.70
+  val_size: 0.15
+  test_size: 0.15
+  classification:
+    target_column: "Loan_Approved"
+    positive_class_value: 1
+    class_weight: "balanced"
+    max_iter: 1000
+    solver: "lbfgs"
+    C: 1.0
+  clustering:
+    k_range_min: 2
+    k_range_max: 10
+    selected_k: 4
+    stability_seeds: [0, 42, 123, 456, 789]
+    n_init: 10
+
+visualization:
+  color_palette: "viridis"
+  figure_dpi: 150
+  output_dir: "reports/figures"
+
+logging:
+  level: "INFO"
+  log_file: "logs/pipeline.log"

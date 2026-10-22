@@ -1,0 +1,302 @@
+{
+  "run_timestamp": "2026-10-22T18:44:26.254103",
+  "dataset_path": "N/A",
+  "checksum_md5": "N/A",
+  "row_count_raw": 30000,
+  "row_count_after_dedup": 30000,
+  "duplicates_removed": 0,
+  "columns": {
+    "Application_ID": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Age": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Gender": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Marital_Status": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Education_Level": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Employment_Status": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Job_Experience_Years": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Annual_Income": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 205,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Monthly_Income": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 205,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Credit_Score": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Credit_History_Years": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Existing_Loans": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Late_Payments_Last_2_Years": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Loan_Amount": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 239,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Loan_Term_Months": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Loan_Purpose": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Interest_Rate": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Debt_To_Income_Ratio": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 1678,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Savings_Balance": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Checking_Balance": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Total_Assets": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Total_Liabilities": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Monthly_Debt_Payment": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Property_Ownership": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Residential_Status": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Dependents": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Co_Applicant": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Collateral": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Application_Channel": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Region": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Bank_Account_Age_Years": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Previous_Loan_Status": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Risk_Score": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Default_Risk": {
+      "dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Approved_Amount": {
+      "dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    },
+    "Loan_Approved": {
+      "dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "outliers_flagged": 0,
+      "range_violations": 0,
+      "outliers_action": "none"
+    }
+  },
+  "critical_errors": [],
+  "warnings": [
+    "Monthly_Income and Annual_Income have high correlation (1.0000) \u2014 potential redundancy."
+  ]
+}
