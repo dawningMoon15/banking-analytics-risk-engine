@@ -1,0 +1,218 @@
+{
+  "intercept": -0.39655499186651,
+  "threshold": 0.37,
+  "num_stats": {
+    "Age": {
+      "median": 39.0,
+      "mean": 39.03228571428571,
+      "scale": 10.634548617563405
+    },
+    "Job_Experience_Years": {
+      "median": 10.0,
+      "mean": 11.039190476190477,
+      "scale": 7.131428582716473
+    },
+    "Annual_Income": {
+      "median": 88681.11,
+      "mean": 88810.14626904762,
+      "scale": 30479.07172712187
+    },
+    "Credit_Score": {
+      "median": 681.0,
+      "mean": 679.2450952380952,
+      "scale": 88.35635355784297
+    },
+    "Credit_History_Years": {
+      "median": 7.4,
+      "mean": 8.934414285714286,
+      "scale": 6.81330532608532
+    },
+    "Existing_Loans": {
+      "median": 1.0,
+      "mean": 1.2897142857142858,
+      "scale": 1.203751641164174
+    },
+    "Late_Payments_Last_2_Years": {
+      "median": 0.0,
+      "mean": 0.7599047619047619,
+      "scale": 1.099121723176408
+    },
+    "Loan_Amount": {
+      "median": 121431.52,
+      "mean": 134911.0622990476,
+      "scale": 84417.97703826058
+    },
+    "Loan_Term_Months": {
+      "median": 72.0,
+      "mean": 112.48857142857143,
+      "scale": 102.39060858560521
+    },
+    "Debt_To_Income_Ratio": {
+      "median": 7.89,
+      "mean": 10.61900619047619,
+      "scale": 9.752959831957229
+    },
+    "Savings_Balance": {
+      "median": 28196.92,
+      "mean": 31682.44333904762,
+      "scale": 21839.71393446324
+    },
+    "Checking_Balance": {
+      "median": 8730.52,
+      "mean": 9713.531823809524,
+      "scale": 6516.086114212427
+    },
+    "Total_Assets": {
+      "median": 284758.85,
+      "mean": 315103.66835476196,
+      "scale": 188898.25741146217
+    },
+    "Total_Liabilities": {
+      "median": 54822.165,
+      "mean": 67090.39433285713,
+      "scale": 48967.75044442616
+    },
+    "Monthly_Debt_Payment": {
+      "median": 536.4200000000001,
+      "mean": 749.5339166666666,
+      "scale": 710.2158773411469
+    },
+    "Dependents": {
+      "median": 1.0,
+      "mean": 1.196095238095238,
+      "scale": 1.0921468549762285
+    },
+    "Bank_Account_Age_Years": {
+      "median": 9.2,
+      "mean": 10.470566666666667,
+      "scale": 7.184394322009823
+    }
+  },
+  "cat_categories": {
+    "Gender": [
+      "Female",
+      "Male"
+    ],
+    "Marital_Status": [
+      "Divorced",
+      "Married",
+      "Single",
+      "Widowed"
+    ],
+    "Education_Level": [
+      "Bachelor",
+      "High School",
+      "Master",
+      "PhD"
+    ],
+    "Employment_Status": [
+      "Business Owner",
+      "Contract",
+      "Salaried",
+      "Self-Employed",
+      "Unemployed"
+    ],
+    "Loan_Purpose": [
+      "Business",
+      "Car",
+      "Debt Consolidation",
+      "Education",
+      "Home",
+      "Medical",
+      "Personal"
+    ],
+    "Property_Ownership": [
+      "Family Owned",
+      "Mortgage",
+      "Own",
+      "Rent"
+    ],
+    "Residential_Status": [
+      "Rural",
+      "Suburban",
+      "Urban"
+    ],
+    "Application_Channel": [
+      "Agent",
+      "Branch",
+      "Mobile App",
+      "Online"
+    ],
+    "Region": [
+      "Central",
+      "East",
+      "North",
+      "South",
+      "West"
+    ],
+    "Previous_Loan_Status": [
+      "Active",
+      "Defaulted",
+      "No Previous Loan",
+      "Paid Off"
+    ]
+  },
+  "coef_dict": {
+    "num__Age": 0.03898070532033395,
+    "num__Job_Experience_Years": 0.0006400870534711382,
+    "num__Annual_Income": 0.33698350004154626,
+    "num__Credit_Score": 1.133961340071657,
+    "num__Credit_History_Years": 0.18817675606826764,
+    "num__Existing_Loans": -0.28412079601163037,
+    "num__Late_Payments_Last_2_Years": -0.6426175393628899,
+    "num__Loan_Amount": -0.9173293591700753,
+    "num__Loan_Term_Months": -0.01815049546678232,
+    "num__Debt_To_Income_Ratio": -0.6782563504349032,
+    "num__Savings_Balance": 0.32558827955447994,
+    "num__Checking_Balance": 0.009823226268819284,
+    "num__Total_Assets": -0.01721783736333597,
+    "num__Total_Liabilities": -0.020106217076345183,
+    "num__Monthly_Debt_Payment": 0.17043300981354717,
+    "num__Dependents": -0.025649372367368747,
+    "num__Bank_Account_Age_Years": -0.08115766139248919,
+    "cat__Gender_Female": -0.19485554157843327,
+    "cat__Gender_Male": -0.19264930784087816,
+    "cat__Marital_Status_Divorced": -0.16397956668396163,
+    "cat__Marital_Status_Married": -0.046660555327295225,
+    "cat__Marital_Status_Single": 0.00657054144168541,
+    "cat__Marital_Status_Widowed": -0.1834352688497464,
+    "cat__Education_Level_Bachelor": -0.17678753434893565,
+    "cat__Education_Level_High School": -0.12418188242267657,
+    "cat__Education_Level_Master": -0.13068470868256,
+    "cat__Education_Level_PhD": 0.04414927603485973,
+    "cat__Employment_Status_Business Owner": 0.4114860599425432,
+    "cat__Employment_Status_Contract": 0.3244852283381696,
+    "cat__Employment_Status_Salaried": 0.37860089175228256,
+    "cat__Employment_Status_Self-Employed": 0.27668002085883353,
+    "cat__Employment_Status_Unemployed": -1.7787570503111516,
+    "cat__Loan_Purpose_Business": -0.07592535285853316,
+    "cat__Loan_Purpose_Car": -0.01323365737197397,
+    "cat__Loan_Purpose_Debt Consolidation": -0.03364557404357164,
+    "cat__Loan_Purpose_Education": -0.09018922425708649,
+    "cat__Loan_Purpose_Home": -0.053286089099056855,
+    "cat__Loan_Purpose_Medical": -0.07680729510453835,
+    "cat__Loan_Purpose_Personal": -0.04441765668455571,
+    "cat__Property_Ownership_Family Owned": -0.11642030124566646,
+    "cat__Property_Ownership_Mortgage": -0.09472711961588842,
+    "cat__Property_Ownership_Own": -0.08992683059608253,
+    "cat__Property_Ownership_Rent": -0.08643059796167886,
+    "cat__Residential_Status_Rural": -0.17235521239001447,
+    "cat__Residential_Status_Suburban": -0.10329334460436013,
+    "cat__Residential_Status_Urban": -0.11185629242494324,
+    "cat__Application_Channel_Agent": -0.09784235407942726,
+    "cat__Application_Channel_Branch": -0.10683899499632706,
+    "cat__Application_Channel_Mobile App": -0.07427119993785579,
+    "cat__Application_Channel_Online": -0.10855230040570683,
+    "cat__Region_Central": 0.00867440522547264,
+    "cat__Region_East": -0.10496700517623762,
+    "cat__Region_North": -0.07012679840584587,
+    "cat__Region_South": -0.09934535683790609,
+    "cat__Region_West": -0.12174009422479874,
+    "cat__Previous_Loan_Status_Active": 0.44991683745136296,
+    "cat__Previous_Loan_Status_Defaulted": -2.614591243519779,
+    "cat__Previous_Loan_Status_No Previous Loan": 0.4997394061899084,
+    "cat__Previous_Loan_Status_Paid Off": 1.2774301504591778,
+    "bin__Co_Applicant": 0.5436351008177024,
+    "bin__Collateral": 0.8276535557663566
+  }
+}

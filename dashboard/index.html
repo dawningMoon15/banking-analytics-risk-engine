@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking Analytics &amp; Risk Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Top App Header -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">BA</div>
+      <div class="brand-text">
+        <h1>Banking Analytics &amp; Risk Engine</h1>
+        <p>Portfolio Analysis &bull; Risk Classification &bull; 30,000 Records</p>
+      </div>
+    </div>
+    <!-- Clean 3-Tab Navigation -->
+    <nav class="nav-tabs" aria-label="Dashboard Views">
+      <button class="tab-btn active" data-tab="tab-overview" id="btn-tab-overview" onclick="showTab('tab-overview')">Overview</button>
+      <button class="tab-btn" data-tab="tab-drivers" id="btn-tab-drivers" onclick="showTab('tab-drivers')">Risk Drivers</button>
+      <button class="tab-btn" data-tab="tab-simulator" id="btn-tab-simulator" onclick="showTab('tab-simulator')">Loan Simulator</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 4 Clean KPIs -->
+    <section class="kpi-row" aria-label="Key Portfolio Metrics">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Applications</div>
+        <div class="kpi-value">30,000</div>
+        <div class="kpi-hint">Evaluated records</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Approval Rate</div>
+        <div class="kpi-value" style="color: var(--primary);">57.6%</div>
+        <div class="kpi-hint">17,291 approved</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Model ROC-AUC</div>
+        <div class="kpi-value" style="color: var(--success);">0.89</div>
+        <div class="kpi-hint">Held-out test set</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Avg Credit Score</div>
+        <div class="kpi-value">672</div>
+        <div class="kpi-hint">715 approved vs 631 rejected</div>
+      </div>
+    </section>
+
+    <!-- TAB 1: OVERVIEW -->
+    <section id="tab-overview" class="tab-pane active" aria-labelledby="btn-tab-overview">
+      <div class="grid-2">
+        <!-- Approval by Credit Score Band -->
+        <div class="card">
+          <div class="card-title">Approval Rate by Credit Score Band</div>
+          <div class="chart-box">
+            <canvas id="chartCreditBand"></canvas>
+          </div>
+        </div>
+
+        <!-- Approval by Loan Purpose -->
+        <div class="card">
+          <div class="card-title">Approval Rate by Loan Purpose</div>
+          <div class="chart-box">
+            <canvas id="chartPurpose"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Segments Table -->
+      <div class="card">
+        <div class="card-title">Customer Segments ($k=4$)</div>
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>Segment Label</th>
+              <th>Portfolio Share</th>
+              <th>Avg Credit Score</th>
+              <th>Avg Income</th>
+              <th>Avg DTI</th>
+              <th>Approval Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Car Borrowers</strong></td>
+              <td>18.9% (5,682)</td>
+              <td>705</td>
+              <td>$115,857</td>
+              <td>7.1%</td>
+              <td><span class="badge badge-green">69.9%</span></td>
+            </tr>
+            <tr>
+              <td><strong>Credit-Builders</strong></td>
+              <td>28.8% (8,646)</td>
+              <td>621</td>
+              <td>$57,932</td>
+              <td>11.9%</td>
+              <td><span class="badge badge-red">37.3%</span></td>
+            </tr>
+            <tr>
+              <td><strong>Medical Borrowers</strong></td>
+              <td>15.6% (4,665)</td>
+              <td>688</td>
+              <td>$106,414</td>
+              <td>22.7%</td>
+              <td><span class="badge badge-yellow">40.9%</span></td>
+            </tr>
+            <tr>
+              <td><strong>Home Borrowers</strong></td>
+              <td>36.7% (11,007)</td>
+              <td>707</td>
+              <td>$91,566</td>
+              <td>6.3%</td>
+              <td><span class="badge badge-green">74.4%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 2: RISK DRIVERS -->
+    <section id="tab-drivers" class="tab-pane" aria-labelledby="btn-tab-drivers">
+      <!-- Model Metrics Summary -->
+      <div class="card" style="padding: 1rem 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="font-weight: 600; font-size: 0.95rem;">Default Risk Classifier</span>
+            <span style="font-size: 0.8rem; color: var(--text-sub); margin-left: 0.5rem;">Regularized Logistic Regression (Held-out Test Set)</span>
+          </div>
+          <div style="display: flex; gap: 1.5rem; font-size: 0.85rem;">
+            <div>Accuracy: <strong style="color: var(--text-main);">80.8%</strong></div>
+            <div>ROC-AUC: <strong style="color: var(--success);">0.887</strong></div>
+            <div>Recall: <strong style="color: var(--primary);">90.1%</strong></div>
+            <div>Precision: <strong style="color: var(--text-main);">79.4%</strong></div>
+            <div>Cut-Off: <strong style="color: var(--text-sub);">0.37</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Odds Ratio Bar Chart -->
+        <div class="card">
+          <div class="card-title">Top Approval &amp; Risk Drivers (Odds Ratio)</div>
+          <div class="chart-box">
+            <canvas id="chartOdds"></canvas>
+          </div>
+        </div>
+
+        <!-- Clean ROC Curve -->
+        <div class="card">
+          <div class="card-title">ROC Curve (AUC = 0.887)</div>
+          <div class="chart-box">
+            <canvas id="chartRoc"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: LOAN SIMULATOR -->
+    <section id="tab-simulator" class="tab-pane" aria-labelledby="btn-tab-simulator">
+      <div class="preset-container">
+        <span style="font-size: 0.8rem; color: var(--text-sub); align-self: center;">Quick Presets:</span>
+        <button class="preset-btn active" data-preset="prime" id="preset-prime">Prime Homebuyer</button>
+        <button class="preset-btn" data-preset="nearPrime" id="preset-near-prime">Near-Prime</button>
+        <button class="preset-btn" data-preset="highDti" id="preset-high-dti">High DTI Debt</button>
+        <button class="preset-btn" data-preset="defaultRisk" id="preset-default">Prior Default</button>
+      </div>
+
+      <div class="sim-grid">
+        <!-- Input Form -->
+        <div class="card">
+          <div class="card-title">Applicant Profile</div>
+          
+          <div class="form-2col">
+            <div class="input-group">
+              <div class="input-label">Credit Score: <span class="input-val" id="valCredit">785</span></div>
+              <input type="range" min="300" max="850" step="5" value="785" class="input-range" id="simCredit">
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">Annual Income: <span class="input-val" id="valIncome">$145,000</span></div>
+              <input type="range" min="15000" max="250000" step="1000" value="145000" class="input-range" id="simIncome">
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">Loan Amount: <span class="input-val" id="valAmount">$32,000</span></div>
+              <input type="range" min="2000" max="100000" step="1000" value="32000" class="input-range" id="simAmount">
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">Debt-to-Income: <span class="input-val" id="valDti">8.5%</span></div>
+              <input type="range" min="1" max="70" step="0.5" value="8.5" class="input-range" id="simDti">
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">Late Payments (2 Yrs): <span class="input-val" id="valLate">0</span></div>
+              <input type="range" min="0" max="8" step="1" value="0" class="input-range" id="simLate">
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="simEmployment">Employment</label>
+              <select class="input-select" id="simEmployment">
+                <option value="Salaried" selected>Salaried</option>
+                <option value="Business Owner">Business Owner</option>
+                <option value="Self-Employed">Self-Employed</option>
+                <option value="Unemployed">Unemployed</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="simPrevLoan">Previous Loan History</label>
+              <select class="input-select" id="simPrevLoan">
+                <option value="Paid Off" selected>Paid Off</option>
+                <option value="Active">Active</option>
+                <option value="No Previous Loan">No Previous Loan</option>
+                <option value="Defaulted">Defaulted</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="simPurpose">Loan Purpose</label>
+              <select class="input-select" id="simPurpose">
+                <option value="Home" selected>Home</option>
+                <option value="Car">Car</option>
+                <option value="Debt Consolidation">Debt Consolidation</option>
+                <option value="Business">Business</option>
+                <option value="Education">Education</option>
+                <option value="Medical">Medical</option>
+                <option value="Personal">Personal</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">Collateral</div>
+              <button type="button" class="switch-btn active" id="simCollateral" data-val="1">Yes</button>
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">Co-Applicant</div>
+              <button type="button" class="switch-btn active" id="simCoApplicant" data-val="1">Yes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instant Verdict -->
+        <div class="card">
+          <div class="card-title">Underwriting Decision</div>
+          
+          <div class="verdict-box verdict-approved" id="verdictBox">
+            <div class="verdict-title" id="verdictTitle">APPROVED</div>
+            <div class="verdict-prob" id="verdictProb">Approval Probability: 95% &bull; Risk Score: 5/100</div>
+          </div>
+
+          <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-sub); margin-bottom: 0.35rem;">Key Factors Influencing This Decision:</div>
+          <div class="driver-list" id="simDriversList"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    Banking Customer Analytics &amp; Risk Engine &bull; Portfolio Analytics
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="simulator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,60 +1,84 @@
 {
-  "timestamp": "2026-10-22T18:56:28.510534",
+  "timestamp": "2026-10-23T02:25:16.920168",
   "algorithm": "KMeans",
-  "selected_k": 3,
-  "inertia": 4442.663836376013,
-  "silhouette_score": 0.03702357257006981,
+  "selected_k": 4,
+  "inertia": 580420.8984347185,
+  "silhouette_score": 0.06069793849162031,
   "stability_report": {
     "seeds": [
       0,
-      42
+      42,
+      123,
+      456,
+      789
     ],
     "pairwise_ari_scores": [
-      0.154
+      0.9741,
+      0.9885,
+      0.9678,
+      0.9609,
+      0.9635,
+      0.9935,
+      0.9504,
+      0.9573,
+      0.9613,
+      0.9461
     ],
-    "mean_ari": 0.154,
-    "is_stable": false
+    "mean_ari": 0.9663,
+    "is_stable": true
   },
   "pca_variance_explained": [
-    0.0677,
-    0.0641
+    0.1939,
+    0.1084
   ],
   "cluster_profiles": [
     {
       "cluster_id": 0,
-      "size": 63,
-      "pct_of_portfolio": 31.5,
-      "avg_credit_score": 581.7,
-      "avg_income": 78457.39,
-      "avg_dti": 42.11,
-      "avg_loan_amount": 42323.6,
-      "approval_rate": 66.67,
-      "dominant_loan_purpose": "Home",
-      "persona_label": "Emerging Credit-Builder Applicants"
+      "size": 5682,
+      "pct_of_portfolio": 18.94,
+      "avg_credit_score": 705.4,
+      "avg_income": 115857.14,
+      "avg_dti": 7.07,
+      "avg_loan_amount": 165883.24,
+      "approval_rate": 69.92,
+      "dominant_loan_purpose": "Car",
+      "persona_label": "Core Mainstream Borrowers"
     },
     {
       "cluster_id": 1,
-      "size": 69,
-      "pct_of_portfolio": 34.5,
-      "avg_credit_score": 645.0,
-      "avg_income": 96268.94,
-      "avg_dti": 30.68,
-      "avg_loan_amount": 47027.1,
-      "approval_rate": 62.32,
-      "dominant_loan_purpose": "Home",
-      "persona_label": "Emerging Credit-Builder Applicants (Tier 2)"
+      "size": 8646,
+      "pct_of_portfolio": 28.82,
+      "avg_credit_score": 621.5,
+      "avg_income": 57931.6,
+      "avg_dti": 11.91,
+      "avg_loan_amount": 83576.0,
+      "approval_rate": 37.29,
+      "dominant_loan_purpose": "Debt Consolidation",
+      "persona_label": "Emerging Credit-Builder Applicants"
     },
     {
       "cluster_id": 2,
-      "size": 68,
-      "pct_of_portfolio": 34.0,
-      "avg_credit_score": 718.5,
-      "avg_income": 123806.2,
-      "avg_dti": 36.42,
-      "avg_loan_amount": 31617.57,
-      "approval_rate": 57.35,
-      "dominant_loan_purpose": "Debt Consolidation",
-      "persona_label": "Core Mainstream Borrowers"
+      "size": 4665,
+      "pct_of_portfolio": 15.55,
+      "avg_credit_score": 687.7,
+      "avg_income": 106413.57,
+      "avg_dti": 22.72,
+      "avg_loan_amount": 231777.11,
+      "approval_rate": 40.94,
+      "dominant_loan_purpose": "Medical",
+      "persona_label": "Core Mainstream Borrowers (Tier 2)"
+    },
+    {
+      "cluster_id": 3,
+      "size": 11007,
+      "pct_of_portfolio": 36.69,
+      "avg_credit_score": 707.1,
+      "avg_income": 91566.46,
+      "avg_dti": 6.31,
+      "avg_loan_amount": 117991.22,
+      "approval_rate": 74.35,
+      "dominant_loan_purpose": "Home",
+      "persona_label": "Core Mainstream Borrowers (Tier 3)"
     }
   ]
 }

@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-10-22T18:56:28.265412",
+  "timestamp": "2026-10-23T02:24:25.775956",
   "model_type": "LogisticRegression",
   "random_seed": 42,
   "hyperparameters": {
     "C": 1.0,
     "class_weight": "balanced",
     "solver": "lbfgs",
-    "max_iter": 500
+    "max_iter": 1000
   },
-  "optimal_threshold": 0.1,
+  "optimal_threshold": 0.37,
   "metrics_test": {
-    "roc_auc": 0.2632,
-    "pr_auc": 0.5602,
-    "brier_score": 0.4508,
-    "accuracy": 0.5333,
-    "precision": 0.5926,
-    "recall": 0.8421,
-    "f1": 0.6957
+    "roc_auc": 0.8866,
+    "pr_auc": 0.908,
+    "brier_score": 0.135,
+    "accuracy": 0.808,
+    "precision": 0.7938,
+    "recall": 0.9009,
+    "f1": 0.844
   },
   "baseline_comparison": {
-    "accuracy": 0.6333,
-    "f1": 0.7755
+    "accuracy": 0.5764,
+    "f1": 0.7313
   }
 }
